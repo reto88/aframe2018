@@ -1,0 +1,121 @@
+<div class="content">
+  <div class="qrHeader"  *ngIf="!qrLoaded">
+    <div class="colume1" [ngSwitch]="detail.group">
+      <img *ngSwitchCase="'Sensor'" mat-card-avatar src="./assets/picture/sensorklein.jpg">
+      <img *ngSwitchCase="'Actuator'" mat-card-avatar src="./assets/picture/actuatorklein.jpg">
+      <img *ngSwitchCase="'Valve'" mat-card-avatar src="./assets/picture/valveklein.jpg">
+      <img *ngSwitchCase="'Pump'" mat-card-avatar src="./assets/picture/pumpeklein.jpg">
+      <img *ngSwitchCase="'Unit'" mat-card-avatar src="./assets/picture/unitklein.jpg">
+      <img *ngSwitchDefault="" mat-card-avatar src="./assets/picture/undefinedklein.jpg">
+    </div>
+    <div class="colume2" *ngIf="checkContent(detail.aks) && show">
+      <mat-label *ngIf="show">{{detail.aks}}</mat-label>
+    </div>
+    <div *ngIf="!checkContent(detail.aks) || !show">
+      <mat-spinner [diameter]="40"></mat-spinner>
+    </div>
+    <div class="colume3">
+      <button mat-fab color="accent" (click)="qrLoaded=!qrLoaded">QR</button>
+    </div>
+  </div>
+  <div *ngIf="qrLoaded">
+    <app-qr *ngIf="qrLoaded" [aks]="detail.aks" (isLoaded)="closeQr($event)"></app-qr>
+  </div>
+  <div *ngIf="!qrLoaded">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Header
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="show">
+        <app-checkt-stringelement [nameValue]="'AKS:'" [show]="show" [valueE]="detail.aks"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'Name:'" [show]="show" [valueE]="detail.name"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'group:'" [show]="show" [valueE]="detail.group"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'Author:'" [show]="show" [valueE]="detail.author"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'Date:'" [show]="show" [valueE]="detail.date | date:'dd.MM.yyyy HH:mm'"></app-checkt-stringelement>
+      </div>
+      <div *ngIf="!show">
+        <mat-spinner></mat-spinner>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          information
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="show">
+        <div *ngIf="checkContentObj(detail.information)">
+        <app-checkt-stringelement [nameValue]="'Description:'" [show]="show" [valueE]="detail.information.description"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'Manufacturer:'" [show]="show" [valueE]="detail.information.manufacturer"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'Productname:'" [show]="show" [valueE]="detail.information.productname"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'Typ:'" [show]="show" [valueE]="detail.information.producttype"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'Distributor:'" [show]="show" [valueE]="detail.information.supplier"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'Order number:'" [show]="show" [valueE]="detail.information.ordernumber"></app-checkt-stringelement>
+        </div>
+        </div>
+      <div *ngIf="!show">
+        <mat-spinner></mat-spinner>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Livevalue
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="true">
+        <div *ngFor="let item of detail.livevalue">
+          <div class="itemElement">
+            <div class="lilveValueTitel">
+              <mat-label class="name" >{{item.name}}</mat-label>
+              <mat-label class="aks">{{item.aks}}</mat-label>
+            </div>
+            <div></div>
+            <div class="lilveValueOutput" >
+              <mat-label class="value" [@valueAnimation]="item.value" >{{item.value }} {{item.unit}}</mat-label>
+              <mat-label class="update">Last Updated {{item.timestamp | date:'dd.MM.yyyy HH:mm:ss'}}</mat-label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!show">
+        <mat-spinner></mat-spinner>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Documents
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div *ngIf="checkContent('true') && show">
+        <div *ngFor=" let docItem of detail.documents">
+          <app-checkt-urlelement [nameUrl]="docItem.name" [url]="docItem.url" [show]="show"></app-checkt-urlelement>
+        </div>
+      </div>
+      <div *ngIf="!show">
+        <mat-spinner></mat-spinner>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div class="buttonsFooter">
+    <div class="colume1">
+      <button *ngIf="superuser" mat-fab color="accent" class="buttonDetail" routerLink="/edit/{{detail.id}}">Edit</button>
+    </div>
+    <div class="colume2">
+    </div>
+    <div class="colume3">
+    </div>
+  </div>
+</div>
+
+</div> 
+

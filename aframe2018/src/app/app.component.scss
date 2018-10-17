@@ -1,0 +1,26 @@
+@import '../ownStyle.scss';
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  z-index:2;
+}
+
+/* for all components */
+.content{
+  margin-top: 100px;
+}
+
+
+
+
+.footer {
+  position: fixed;
+  bottom: 10px;
+  left: 25%;
+  width: 75%;
+}
+

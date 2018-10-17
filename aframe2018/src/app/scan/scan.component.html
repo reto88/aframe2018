@@ -1,0 +1,15 @@
+<div class="backButton" fxLayout="row" fxLayoutAlign="end end">
+  <button mat-fab color="primary" id="backButton" (click)="goHomeAndReload()">back</button>
+</div>
+<div class="detailButton" fxLayout="row" fxLayoutAlign="end end">
+  <button mat-fab color="primary" id="detailButton" (click)="goToRoute()">Detail</button>
+</div>
+<!--<canvas #canvas width="800" height="400"></canvas>-->
+
+<div> {{message}}</div>
+<app-texture (ChildEvent)="message=$event" (imageDataEmitter)="childCanvas"></app-texture>
+<!-- <app-texture (ChildEvent)="message=$event"></app-texture> -->
+
+<div id='css3Sandbox' #css3Sandbox class='three-div'>
+  asdasdsd
+</div>

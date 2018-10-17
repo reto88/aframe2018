@@ -1,0 +1,29 @@
+<div class="content" fxLayout="row wrap">
+  <div>
+    <form class="search">
+      <mat-form-field class="searchInputAKS">
+        <input matInput [(ngModel)]="objectFilterAKS.aks" name="searchAKS" placeholder="search AKS Code">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      <mat-spinner [diameter]="40" *ngIf="isLoading"></mat-spinner>
+    </form>
+  </div>
+  <div *ngIf="dataReceived" fxLayout="row wrap">
+    <mat-card class="card-class" *ngFor="let object of objecttoShow | filterBy: objectFilterAKS"
+              fxFlex="340px" routerLink="/detail/{{object.id}}">
+      <mat-card-title-group [ngSwitch]="object.group">
+
+        <mat-card-title>{{object.aks}}</mat-card-title>
+        <mat-card-subtitle>{{object.name}}</mat-card-subtitle>
+        <mat-card-subtitle>created on: {{object.date | date:'dd.MM.yyyy'}}</mat-card-subtitle>
+        <mat-card-subtitle>from: {{object.author}}</mat-card-subtitle>
+        <img *ngSwitchCase="'Sensor'" mat-card-avatar src="./assets/picture/sensor.jpg">
+        <img *ngSwitchCase="'Actuator'" mat-card-avatar src="./assets/picture/actuator.jpg">
+        <img *ngSwitchCase="'Valve'" mat-card-avatar src="./assets/picture/valve.jpg">
+        <img *ngSwitchCase="'Pump'" mat-card-avatar src="./assets/picture/pumpe.jpg">
+        <img *ngSwitchCase="'Unit'" mat-card-avatar src="./assets/picture/unit.jpg">
+        <img *ngSwitchDefault="" mat-card-avatar src="./assets/picture/undefined.jpg">
+      </mat-card-title-group>
+    </mat-card>
+  </div>
+</div>

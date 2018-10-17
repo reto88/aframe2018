@@ -1,0 +1,30 @@
+@import '../../../ownStyle.scss';
+
+.search {
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  height: auto;
+  width: 100%;
+  z-index: 2;
+  background-color: $search-background-color;
+}
+
+.card-class {
+  margin: 5px;
+  top: 80px;
+  background-color: $card-background-color;
+}
+
+
+.searchInputGroup {
+  width: 100%;
+  max-width: 280px;
+
+}
+
+.searchInputAKS {
+  width: 100%;
+  max-width: 280px;
+}
+

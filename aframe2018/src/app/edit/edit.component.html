@@ -1,0 +1,133 @@
+<div class="content">
+  <div class="qrHeader" *ngIf="!qrLoaded">
+    <div class="colume1" [ngSwitch]="detail.group">
+      <img *ngSwitchCase="'Sensor'" mat-card-avatar src="./assets/picture/sensorklein.jpg">
+      <img *ngSwitchCase="'Actuator'" mat-card-avatar src="./assets/picture/actuatorklein.jpg">
+      <img *ngSwitchCase="'Valve'" mat-card-avatar src="./assets/picture/valveklein.jpg">
+      <img *ngSwitchCase="'Pump'" mat-card-avatar src="./assets/picture/pumpeklein.jpg">
+      <img *ngSwitchCase="'Unit'" mat-card-avatar src="./assets/picture/unitklein.jpg">
+      <img *ngSwitchDefault="" mat-card-avatar src="./assets/picture/undefinedklein.jpg">
+    </div>
+    <div class="colume2" *ngIf="checkContent(detail.aks) && show">
+      <mat-label *ngIf="show">{{detail.aks}}</mat-label>
+    </div>
+    <div *ngIf="!checkContent(detail.aks) || !show">
+      <mat-spinner [diameter]="40"></mat-spinner>
+    </div>
+    <div class="colume3">
+      <button mat-fab color="accent" (click)="qrLoaded=!qrLoaded">QR</button>
+    </div>
+  </div>
+  <div *ngIf="qrLoaded">
+    <app-qr *ngIf="qrLoaded" [aks]="detail.aks" (isLoaded)="closeQr($event)"></app-qr>
+  </div>
+  <div *ngIf="!qrLoaded">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Header
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="show">
+        <app-input-header
+          [valuAKS]="detail.aks"
+          [valueName]="detail.name"
+          [typeSelection]="['Sensor', 'Actuator', 'Valve', 'Pump', 'Unit', 'Undefined']"
+          [typDefault]="detail.group"
+          (changeValue)="newData($event)"></app-input-header>
+        <app-checkt-stringelement [nameValue]="'Author:'" [show]="show" [valueE]="detail.author"></app-checkt-stringelement>
+        <app-checkt-stringelement [nameValue]="'Date:'" [show]="show" [valueE]="detail.date | date:'dd.MM.yyyy HH:mm'"></app-checkt-stringelement>
+      </div>
+      <div *ngIf="!show">
+        <mat-spinner></mat-spinner>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          information
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="show">
+        <div *ngIf="checkContentObj(detail.information)">
+          <app-checkt-stringelement [nameValue]="'Description:'" [show]="show" [valueE]="detail.information.description"></app-checkt-stringelement>
+          <app-checkt-stringelement [nameValue]="'Manufacturer:'" [show]="show" [valueE]="detail.information.manufacturer"></app-checkt-stringelement>
+          <app-checkt-urlelement [nameUrl]="detail.information.manufacturerurl" [url]="detail.information.manufacturerurl" [show]="show"></app-checkt-urlelement>
+          <app-checkt-stringelement [nameValue]="'Productname:'" [show]="show" [valueE]="detail.information.productname"></app-checkt-stringelement>
+          <app-checkt-stringelement [nameValue]="'Typ:'" [show]="show" [valueE]="detail.information.producttype"></app-checkt-stringelement>
+          <app-checkt-stringelement [nameValue]="'Distributor:'" [show]="show" [valueE]="detail.information.supplier"></app-checkt-stringelement>
+          <app-checkt-urlelement [nameUrl]="detail.information.supplierurl" [url]="detail.information.supplierurl" [show]="show"></app-checkt-urlelement>
+          <app-checkt-stringelement [nameValue]="'Order number:'" [show]="show" [valueE]="detail.information.ordernumber"></app-checkt-stringelement>
+        </div>
+        <button type="button" mat-raised-button (click)="openDialog(toArray(detail.information),'information','manufacturer','productname',1)" color="accent">Open Info Dialog</button>
+      </div>
+      <div *ngIf="!show">
+        <mat-spinner></mat-spinner>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Livevalue
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="show">
+        <div *ngIf="checkContent('true')">
+          <div *ngFor=" let liveItem of detail.livevalue">
+            <app-item-change [show]="show"
+                             [text]="liveItem.name"
+                             [text2]="liveItem.aks"
+                             [pos]="detail.livevalue.indexOf(liveItem, 0)"
+                             [lenge]="detail.livevalue.length"
+                             (up)="upLiveObject($event)"
+                             (down)="downLiveObject($event)"></app-item-change>
+          </div>
+        </div>
+        <button type="button" mat-raised-button (click)="openDialog(detail.livevalue,'live','aks','name',5)" color="accent">Open Live Dialog</button>
+      </div>
+      <div *ngIf="!show">
+        <mat-spinner></mat-spinner>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Documents
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="checkContent('true') && show">
+        <div *ngFor=" let docItem of detail.documents">
+          <app-item-change [show]="show"
+                           [text]="docItem.name"
+                           [pos]="detail.documents.indexOf(docItem, 0)"
+                           [lenge]="detail.documents.length"
+                           (down)="downDocObject($event)"
+                           (up)="upDocObject($event)"></app-item-change>
+        </div>
+      </div>
+      <div *ngIf="!show">
+        <mat-spinner></mat-spinner>
+      </div>
+      <button type="button" mat-raised-button (click)="openDialog(detail.documents,'document','name','', 4)" color="accent">Open Document Dialog</button>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div class="buttonsFooter">
+    <div class="colume1">
+
+    </div>
+    <div class="colume2">
+      <button *ngIf="show" mat-fab color="accent" class="buttonEdit" (click)="save()" [disabled]="!dataValid">Save</button>
+      <button mat-fab color="accent" class="buttonEdit" routerLink="/detail/{{id}}" >Abort</button>
+      <button *ngIf="show" mat-fab color="accent" class="buttonEdit" (click)="openDeleteDialog()" >Delete</button>
+    </div>
+    <div class="colume3">
+    </div>
+  </div>
+</div>
+</div>

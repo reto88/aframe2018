@@ -1,0 +1,24 @@
+@import '../../../ownStyle.scss';
+
+a {
+  text-decoration: none;
+  color:  $header-font-color;
+}
+a.active{
+  font-weight: bold;
+  color:$header-select-color;
+}
+div{
+  color:$header-font-color;
+}
+.navigation-items{
+   list-style: none;
+   margin:0;
+   padding:0;
+ }
+.user{
+  list-style: none;
+  font-size: 10px;
+}
+
+

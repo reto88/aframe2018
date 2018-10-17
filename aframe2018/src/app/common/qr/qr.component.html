@@ -1,0 +1,35 @@
+<div class="content">
+  <div fxFlex="100%" fxLayout="column" fxLayoutAlign="center center">
+    <div class="print">
+      <p fxLayout="column" fxLayoutAlign="center center"> {{aks}}</p>
+      <div fxLayout="row" fxLayoutAlign="center stretch">
+        <div>
+          <div fxHide.xs fxLayout="row" fxLayoutGap="30px">
+            <div>
+              <qrcode [qrdata]="myQrCode" [size]="254" [level]="'M'"></qrcode>
+            </div>
+            <div><img src="../assets/marker/hiro1.png" style="width:254px;height:254px;"></div>
+          </div>
+          <div fxHide.gt-xs fxLayout="row" fxLayoutGap="30px">
+            <div>
+              <qrcode [qrdata]="myQrCode" [size]="120" [level]="'M'"></qrcode>
+            </div>
+            <div><img src="../assets/marker/hiro1.png" style="width:120px;height:120px;"></div>
+          </div>
+
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center stretch">
+        <br>
+        <p> {{myQrCode}}</p>
+      </div>
+    </div>
+    <div>
+      <br>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <button type="button" mat-fab color="primary" (click)="printfunction()">PRINT</button>
+      <button type="button" mat-fab color="accent" (click)="onClose()">BACK</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="content">
+  <div class="creatHeader">
+    <mat-label>Header</mat-label>
+  </div>
+
+  <div class="inputArea">
+    <div class="colume1">
+    </div>
+    <div class="colume2">
+    <app-input-header
+      [valuAKS]="''"
+      [valueName]="''"
+      [typeSelection]="environment.componentenType.select"
+      [typDefault]="environment.componentenType.defaultSelect"
+      (changeValue)="newData($event)"></app-input-header>
+    </div>
+  </div>
+  <div class="buttonsFooter">
+    <p class="colume1">
+
+    </p>
+    <p class="colume2">
+      <button mat-fab color="accent" class="buttonEdit" (click)="createNew()" [disabled]="!dataValid">new</button>
+      <button mat-fab color="accent" class="buttonEdit" routerLink="/home" >Abort</button>
+    </p>
+    <p class="colume3">
+
+    </p>
+  </div>
+</div>

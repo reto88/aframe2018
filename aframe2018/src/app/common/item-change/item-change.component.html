@@ -1,0 +1,13 @@
+<div *ngIf="checkContent(text)">
+    <div class="itemElement">
+      <div class="itemLabel">
+        <mat-label class="itemTitel">{{text}} </mat-label>
+        <mat-label *ngIf="checkContent(text2 )" class="itemOutput">{{text2}}</mat-label>
+      </div>
+      <div class="itemButton">
+        <button mat-raised-button color [disabled]="checkFirst(pos)" (click)="up.emit(pos)" >up</button>
+        <button mat-raised-button color [disabled]="checkLast(pos)" (click)="down.emit(pos)">down</button>
+        <!-- <button mat-raised-button color (click)="remove.emit(pos)">remove</button> </div> --->
+      </div>
+    </div>
+</div>

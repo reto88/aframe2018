@@ -1,0 +1,25 @@
+
+.itemElement{
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  max-width: 600px;
+  flex-direction: row;
+
+  .itemLabel{
+    display: flex;
+    flex-direction: column;
+
+    .itemTitel{
+
+      font-weight: bold;
+    }
+    .itemOutput{
+    }
+  }
+  .itemButton{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+

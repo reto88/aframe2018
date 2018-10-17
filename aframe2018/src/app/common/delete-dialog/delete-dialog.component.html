@@ -1,0 +1,15 @@
+<div>
+  <div>
+    <mat-label class="dialogHeader">Do you want to delete the object?</mat-label>
+    <div class="dataField">
+      <mat-label class="labelDialog">AKS:</mat-label><mat-label class="output">{{data.aks}}</mat-label>
+      <mat-label class="labelDialog">Name:</mat-label><mat-label class="output">{{data.name}}</mat-label>
+      <mat-label class="labelDialog">ObjectId:</mat-label><mat-label class="output">{{data.id}}</mat-label>
+    </div>
+  </div>
+  <div class="buttonsDialog" fxLayout="row" fxLayoutAlign="space-around center">
+    <button mat-fab color="accent" (click)="ok()">OK</button>
+    <button mat-fab color="accent" (click)="abbort()">Abort</button>
+  </div>
+
+</div>

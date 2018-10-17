@@ -1,0 +1,20 @@
+
+
+  <form [formGroup]="theForm" class="inputElementeHeader">
+    <mat-label class="AKSLabel">AKS:</mat-label>
+    <input  placeholder="min. length 5" type="text" formControlName="aks" class="AKSInput" (keyup)="onSubmit()" required>
+    <mat-label class="AKSLabel">Name:</mat-label>
+    <input placeholder="min. length 5" type="text" formControlName="name" class="AKSInput" (keyup)="onSubmit()" required >
+  </form>
+
+  <div class="inputElementeHeader">
+  <mat-label class="AKSLabel">Group:</mat-label>
+  <section class="sectionRadiobutton">
+  <mat-radio-group [(ngModel)]="typDefault">
+      <div *ngFor="let item of typeSelection">
+        <mat-radio-button class="inRadioButton" value="{{item}}" (change)="onChaneType(item)">{{item}}</mat-radio-button>
+      </div>
+    </mat-radio-group>
+  </section>
+</div>
+

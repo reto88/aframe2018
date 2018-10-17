@@ -1,0 +1,29 @@
+.dialogHeader {
+  font-size: 14px;
+  font-weight: bold;
+  color: crimson;
+}
+
+.dataField {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+
+.labelDialog{
+  font-size: 12px;
+  font-weight: bold;
+}
+.output{
+  font-size: 12px;
+}
+
+.id {
+  font-size: 10px;
+}
+
+
+button{
+  margin: 10px;
+}

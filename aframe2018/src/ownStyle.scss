@@ -1,0 +1,53 @@
+@import '~@angular/material/theming';
+
+
+
+@include mat-core();
+//Change Colors
+$own-style-primary:  mat-palette($mat-blue);
+$own-style-accent:  mat-palette($mat-light-blue, A200, A100, A400);
+$own-style-warn:    mat-palette($mat-red);
+$primary-color: mat-color($own-style-primary);
+
+$mat-amber:  mat-palette($mat-amber);
+$mat-blue:mat-palette($mat-blue);
+
+
+// Create the theme object (a Sass map containing all of the palettes).
+$own-style-theme: mat-light-theme($own-style-primary, $own-style-accent, $own-style-warn);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($own-style-theme);
+
+
+//Variable for all others
+$header-font-color: white;
+$header-select-color:  mat-color($mat-amber);
+
+$warn-color:  mat-palette($mat-red);
+$card-background-color: white;
+$search-background-color: white;
+
+//Icon https://material.io/tools/icons/?style=baseline
+
+.hint-login
+{
+  color: mat-color($own-style-warn);
+}
+
+// Typesearch ahead color and size option for Dialog
+//size of scroll items
+ng-select[_ngcontent-c26] {
+  font-size: 16px;
+}
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-label {
+  font-size: 16px; //label size 16px for safari to avoid zoom
+  font-weight: 500;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+  background-color: mat-color($own-style-accent); //label color
+}
+
+

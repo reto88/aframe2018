@@ -1,0 +1,87 @@
+@import '../../ownStyle.scss';
+//Styling für den QR header
+
+.buttonEdit{
+  margin: 10px;
+}
+
+.qrHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // display: grid;
+  //grid-template-columns: 1fr 4fr 1fr;
+  max-height: 80px;
+  .colume1 {
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .colume2 {
+    flex: 310%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    //font-size: large;
+  }
+  .colume3 {
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+
+  }
+}
+//Styling für ein Ausgabe Element
+.itemElement {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  max-width: 600px;
+
+  .labelTitel {
+    font-weight: bold;
+  }
+  .labelOutput {
+  }
+}
+//Styling für den Buttons über dem Footer
+.buttonsFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // display: grid;
+  //grid-template-columns: 1fr 4fr 1fr;
+  max-height: 80px;
+  .colume1 {
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .colume2 {
+    flex: 310%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    //font-size: large;
+  }
+  .colume3 {
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+
+  }
+}
+

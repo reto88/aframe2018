@@ -1,0 +1,33 @@
+<mat-toolbar class="header" fxFlex color="primary" *ngIf="isVisible == true">
+
+  <mat-toolbar-row fxShow=”true” fxLayout="row" fxLayoutAlign="end end">
+    <div class="user">
+      {{username }}
+    </div>
+    <div fxShow=”true”>
+      <button type="submit" mat-raised-button *ngIf="!isloggedIn" (click)=openLoginDialog()
+              color="primary">{{loginButtonText}}
+      </button>
+      <button type="submit" mat-raised-button *ngIf="isloggedIn" (click)=logout()
+              color="primary">{{loginButtonText}}
+      </button>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <div fxFlex fxShow=”true” fxLayout="row" fxLayoutAlign="space-between none" navigation>
+      <div>{{urlwithout }}
+      </div>
+      <div>
+        <ul fxHide.lt-sm=”true” fxLayout fxLayoutGap="15px" class="navigation-items">
+          <li><a routerLink="../../home" routerLinkActive="active">HOME</a></li>
+          <li><a routerLink="../../overview" routerLinkActive="active">OVERVIEW</a></li>
+          <li><a routerLink="../../aframe" routerLinkActive="active">AFRAME</a></li>
+          <li><a routerLink="../../scan/{{routingBaseId}}" routerLinkActive="active">SCAN</a></li>
+        </ul>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+

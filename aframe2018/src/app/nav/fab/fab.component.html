@@ -1,0 +1,9 @@
+<div  class="fab" fxLayout="row" fxLayoutAlign="end end" fxHide.gt-xs  *ngIf="isVisible == true">
+  <rb-fab-speed-dial class="speed" direction='left' openIcon="list" >
+    <a color="primary"  mat-fab routerLink="../overview"> <mat-icon>search</mat-icon></a>
+       <a color="primary"    mat-fab routerLink="../home"><mat-icon>home</mat-icon></a>
+   <a color="primary"   mat-fab routerLink="../scan/{{routingBaseId}}">  <mat-icon>camera_enhance</mat-icon></a>
+</rb-fab-speed-dial>
+
+</div>
+

@@ -1,0 +1,36 @@
+<div fxFlex="100%" fxLayout="column" fxLayoutAlign="center center">
+  {{data.searchTable }}
+  <div>
+    <mat-spinner [diameter]="40" *ngIf="isLoading"></mat-spinner>
+    <div>
+      <div class="overflow-box">
+   <ng-select *ngIf="!isLoading" class="custom" name="searchGroup"
+                 [items]="newItemObject2"
+                 bindLabel="searchArray"
+                 groupBy="name"
+                 [closeOnSelect]="true"
+                 [searchable]="true"
+                 [maxSelectedItems]="data.maxItem"
+                 placeholder='select group max. {{data.maxItem}}'
+                 [multiple]="true"
+                 [(ngModel)]="selectedInformations">
+
+        <ng-template ng-optgroup-tmp let-item="item">
+          {{item.name || 'Unnamed group'}}
+        </ng-template>
+      </ng-select>
+      </div>
+    </div>
+
+    <div>
+      <div fxFlex fxLayout="row" fxLayoutAlign="space-evenly end">
+        <button type="button" mat-raised-button (click)="onCloseCancel()" color="primary">Cancel</button>
+        <button type="button" mat-raised-button (click)="onCloseConfirm()" color="primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- https://ng-select.github.io/ng-select/  searchArray-->
+

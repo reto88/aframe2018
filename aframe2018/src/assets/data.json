@@ -1,0 +1,208 @@
+[
+  {
+    "id": "-LLVVAASDASD",
+    "aks": "65NT_EXP03_Y760",
+    "name": "pumpe",
+    "group": "Sensor",
+    "author": "master of desaster",
+    "date": "2018",
+    "information": {
+      "productname": "pumpe",
+      "manufacture": "danfoss"
+    },
+    "livevalue": [
+      {
+        "numericId": "40180201",
+        "name": "Watchdog",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      }
+    ],
+    "documents": [
+      {
+        "name": "schema.pdf",
+        "url": "url.ch"
+      },
+      {
+        "name": "keplan.pdf",
+        "url": "url.ch"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "aks": "65NT_EXP03_B810",
+    "name": "ventil",
+    "group": "valve",
+    "author": "master of desaster",
+    "date": "2018",
+    "information": {
+      "productname": "pumpe",
+      "manufacture": "danfoss"
+    },
+    "livevalue": [
+      {
+        "numericId": "40180201",
+        "name": "Ventil2",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      },
+      {
+        "numericId": "3200000",
+        "name": "Aussen Temperatur",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      }
+    ],
+    "documents": [
+      {
+        "name": "schema.pdf",
+        "url": "url.ch"
+      },
+      {
+        "name": "keplan.pdf",
+        "url": "url.ch"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "aks": "65NT_EXP03_Y762",
+    "name": "Sensor",
+    "group": "unknown",
+    "author": "master of desaster",
+    "date": "2018",
+    "information": {
+      "productname": "pumpe",
+      "manufacture": "danfoss"
+    },
+    "livevalue": [
+      {
+        "numericId": "3200002",
+        "name": "Druck3",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      },
+      {
+        "numericId": "3200001",
+        "name": "Feuchte",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      },
+      {
+        "numericId": "40180201",
+        "name": "watc",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      }
+    ],
+    "documents": [
+      {
+        "name": "schema.pdf",
+        "url": "url.ch"
+      },
+      {
+        "name": "keplan.pdf",
+        "url": "url.ch"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "aks": "65NT_EXP03_Y762",
+    "name": "asd",
+    "group": "pump",
+    "author": "master of desaster",
+    "date": "2018",
+    "information": {
+      "productname": "pumpe",
+      "manufacture": "danfoss"
+    },
+    "livevalue": [
+      {
+        "numericId": "3200002",
+        "name": "Druck3",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      },
+      {
+        "numericId": "3200001",
+        "name": "Feuchte",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      },
+      {
+        "numericId": "40180201",
+        "name": "watc",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      }
+    ],
+    "documents": [
+      {
+        "name": "schema.pdf",
+        "url": "url.ch"
+      },
+      {
+        "name": "keplan.pdf",
+        "url": "url.ch"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "aks": "65NT_EXP03_Y762",
+    "name": "Sensor",
+    "group": "Light",
+    "author": "master of desaster",
+    "date": "2018",
+    "information": {
+      "productname": "pumpe",
+      "manufacture": "danfoss"
+    },
+    "livevalue": [
+      {
+        "numericId": "3200002",
+        "name": "Druck3",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      },
+      {
+        "numericId": "3200001",
+        "name": "Feuchte",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      },
+      {
+        "numericId": "40180201",
+        "name": "watc",
+        "timestamp": "dsfsag",
+        "value": 22,
+        "unit": "%"
+      }
+    ],
+    "documents": [
+      {
+        "name": "schema.pdf",
+        "url": "url.ch"
+      },
+      {
+        "name": "keplan.pdf",
+        "url": "url.ch"
+      }
+    ]
+  }
+]
+
+

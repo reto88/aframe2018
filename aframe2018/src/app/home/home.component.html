@@ -1,0 +1,14 @@
+<div class="content">
+  <div fxFlex fxLayout="column" fxLayoutAlign="space-between center">
+    <div class="buttonHome">
+      <button mat-fab color="primary" routerLink="../overview">Overview</button>
+    </div>
+    <div class="buttonHome">
+      <button *ngIf="superuser" mat-fab color="primary" routerLink="../create">CREATE</button>
+    </div>
+    <div class="buttonHome">
+      <button mat-fab color="primary" routerLink="../scan/{{routingBaseId}}">SCAN</button>
+    </div>
+  </div>
+</div>
+

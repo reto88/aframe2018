@@ -1,0 +1,37 @@
+<div fxFlex="100%" fxLayout="column" fxLayoutAlign="center center">
+
+  <p> {{data}}</p>
+
+  <div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" fxFlex="100%" fxLayout="column"
+          fxLayoutAlign="space-evenly center">
+      <mat-form-field>
+        <input autofocus matInput placeholder="Enter an E-Mail" [formControl]="loginForm.controls['email']" required>
+        <mat-error *ngIf="loginForm.controls['email']">{{getErrorMessageEmail()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Password" [formControl]="loginForm.controls['password']" required
+               [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="loginForm.controls['password']">{{getErrorMessagePassword()}}</mat-error>
+        <mat-hint> 6 characters</mat-hint>
+      </mat-form-field>
+      <p class="hint-login">{{message}}</p>
+      <div>
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-evenly end">
+          <button type="submit"  mat-fab color="accent" (click)="login()"  [disabled]="!loginForm.valid">
+            Login
+          </button>
+          <button type="submit"  mat-fab color="accent"(click)="createNewUser()"
+                  [disabled]="!loginForm.valid">New User
+          </button>
+          <button type="button"  mat-fab color="accent" (click)="onCloseCancel()" >Cancel</button>
+        </div>
+      </div>
+      <mat-spinner [diameter]="40" *ngIf="isLoading"></mat-spinner>
+    </form>
+  </div>
+</div>
+
+

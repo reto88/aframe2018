@@ -1,24 +1,30 @@
-
-
-<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+<a-scene id='test' embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
 <!-- <a-scene embedded artoolkit='sourceType: webcam;'> -->
 		<!-- define a marker -->
 		<a-marker preset='hiro'>
 			<!-- define the object which gonna be put on this marker  -->
             <a-sphere src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg" radius="0.5" segments-height="53">
-         
-            </a-sphere>
-            <a-text color="red" align="right" baseline="center" value="Right\nof box\n(even\nwhen\nmulti-\nline)" rotation="-90 00 0"
-        position="0 0.5 0"
-        font= "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt"></a-text>
-        <a-text color="white" align="right" baseline="center"[attr.value]="'Calories\n\n'+test" rotation="-90 00 0"
-        position="1 0.5 0"
-        font= "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt"></a-text>>
+                <a-animation attribute="rotation"
+                easing="linear"
+                dur="10000"
+                to="0 360 0"
+                repeat="indefinite">
 
+   </a-animation>
+            </a-sphere>
+
+        <a-text color="white" align="right" baseline="center"[attr.value]="'Temp: '+test +' C°'" rotation="-90 00 0"
+        position="1.5 0.5 0"
+        font= "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt"></a-text>
+       
+        <a-text color="white" align="right" baseline="center" [attr.value]="'Strahlung: '+test1+ ' W/m2'" rotation="-90 00 0"
+        position="1.5 0.5 0.3"
+        font= "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt"></a-text>
 		</a-marker>
 		<!-- define a simple camera -->
 		<a-entity camera></a-entity>
-	</a-scene>
+    </a-scene>
+    <div></div>
 <div class="backButton" fxLayout="row" fxLayoutAlign="end end">
     <button mat-fab color="primary" id="backButton" (click)="goHomeAndReload()">back</button>
 </div>
